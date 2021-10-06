@@ -1,2 +1,5 @@
 openpyxl
 Faker
+pandas
+numpy
+boto3
