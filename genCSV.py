@@ -12,7 +12,7 @@ users_df.drop(columns=["Hospital", "Phone"], inplace=True)
 users_df.rename(columns={"UserId": "USER_ID", "First Name" : "FIRST_NAME", "Last Name": "LAST_NAME", "Email": "EMAIL"}, inplace=True)
 users_df.set_index("USER_ID", inplace=True)
 
-print(users_df.head())
+print(users_df)
 
 users_df.to_csv("USERS.csv")
 
@@ -30,33 +30,60 @@ print(products_df)
 products_df.to_csv("ITEM_METADATA.csv")
 
 # Generate USER_INTERACTIONS.csv
-rows = 25000
+iterations = 25000
+rows_generated = 0
 user_ids = users_df.index.values
 item_ids = products_df.index.values
 
 interaction_headers = ["USER_ID", "ITEM_ID", "ACTION", "TIMESTAMP"]
 
-ACTIONS = ["OPENED", "CLICKED", "ADDED_TO_CART", "PURCHASED"]
-ACTION_WEIGHTS = [10, 20, 4, 1]
-
 interaction_time = int(time.time())
 
 with open("USER_INTERACTIONS.csv", "w") as f:
     f.write(",".join(interaction_headers) + "\n")
-    for i in range(rows):
-        print(f"\rAdding interaction {i+1}", end="", flush=True)
+
+    def writeRow(*args):
+        global interaction_time, rows_generated
         interaction_time += random.randrange(1, 300)
+        row = list(args) + [str(interaction_time)]
+        rows_generated += 1
+        f.write(",".join(row) + "\n")
+
+    for i in range(iterations):
+        print(f"\rRows generated: {rows_generated}", end="", flush=True)
+
+        # Pick a random person
         chosen_user_id = str(np.random.choice(user_ids))
+
+        # Pick a random item
         chosen_item_id = str(np.random.choice(item_ids))
-        chosen_action = random.choices(ACTIONS, weights=ACTION_WEIGHTS, k=1)[0]
-        f.write(",".join([chosen_user_id, chosen_item_id, chosen_action, str(interaction_time)]) + "\n")
 
-# For User data:
-# - Group users based on 30 or so hospitals
-# - Role - Biomed Department Manager (50%), CFO (1 person), Operator (Rest)
+        # Write record
+        writeRow(chosen_user_id, chosen_item_id, "CLICKED")
 
-# For Item data:
-# - Either remove overview column
+        while True:
+            next_action = random.choices(["OPENED", "NAVIGATED_AWAY", "CLOSED"], cum_weights=[0.7, 0.9, 1])[0]
+            if next_action == "NAVIGATED_AWAY":
+                # Pick a new item id
+                chosen_item_id = str(np.random.choice(item_ids))
+                writeRow(chosen_user_id, chosen_item_id, "CLICKED")
+            else:
+                break
 
-# For Interaction data:
-# Generate events in a more refined way
+        if next_action == "CLOSED":
+            continue
+            
+        # User opened item
+        writeRow(chosen_user_id, chosen_item_id, next_action)
+
+        next_action = random.choices(["ADDED_TO_CART", "CLOSED"], cum_weights=[0.3, 1])[0]
+        if next_action == "CLOSED":
+            continue
+
+        # User added to cart
+        writeRow(chosen_user_id, chosen_item_id, next_action)
+
+        next_action = random.choices(["PURCHASED", "CLOSED"], cum_weights=[0.1, 1])[0]
+
+        # User has purchased item
+        writeRow(chosen_user_id, chosen_item_id, next_action)
