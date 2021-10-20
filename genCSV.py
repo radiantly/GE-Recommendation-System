@@ -76,14 +76,14 @@ with open("USER_INTERACTIONS.csv", "w") as f:
         # User opened item
         writeRow(chosen_user_id, chosen_item_id, next_action)
 
-        next_action = random.choices(["ADDED_TO_CART", "CLOSED"], cum_weights=[0.3, 1])[0]
+        next_action = random.choices(["ADDED_TO_CART", "CLOSED"], cum_weights=[0.1, 1])[0]
         if next_action == "CLOSED":
             continue
 
         # User added to cart
         writeRow(chosen_user_id, chosen_item_id, next_action)
 
-        next_action = random.choices(["PURCHASED", "CLOSED"], cum_weights=[0.1, 1])[0]
+        next_action = random.choices(["PURCHASED", "CLOSED"], cum_weights=[0.5, 1])[0]
 
         # User has purchased item
         writeRow(chosen_user_id, chosen_item_id, next_action)
