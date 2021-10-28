@@ -1,0 +1,92 @@
+.hero_section {
+  height: calc(100vh - 68px);
+  padding: 15vh var(--side-padding) 0;
+}
+
+.main {
+  display: flex;
+  gap: 1vw;
+  align-content: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.text .big {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 100px;
+  color: #373737;
+  max-width: 500px;
+  line-height: 120px;
+}
+
+.text .tagline {
+  color: #0870d8;
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.text .para {
+  color: #818181;
+  font-family: Poppins;
+  font-size: 22px;
+  max-width: 600px;
+  margin-top: 15px;
+}
+
+.text .btn {
+  background-color: #efefef;
+  border-radius: 50px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 500;
+  border: none;
+  align-self: flex-start;
+  padding: 20px 50px;
+  margin-top: 35px;
+  color: #373737;
+  transition: background 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.text .btn:hover {
+  background-color: #e7e7e7;
+}
+
+.pic img {
+  width: 100%;
+  border-radius: 100px;
+}
+
+@media screen and (max-width: 1500px) {
+  .pic img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .text {
+    text-align: center;
+  }
+  .text .big {
+    font-size: 64px;
+    line-height: 80px;
+  }
+  .text .tagline {
+    font-size: 30px;
+  }
+  .text .para {
+    font-size: 18px;
+  }
+  .text .btn {
+    align-self: center;
+    font-size: 20px;
+    padding: 15px 35px;
+  }
+}

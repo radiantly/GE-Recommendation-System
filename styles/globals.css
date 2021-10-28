@@ -1,9 +1,18 @@
+:root {
+  --side-padding: 13vw;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -13,4 +22,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --side-padding: 5vw;
+  }
 }
