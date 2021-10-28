@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import ProductCatalog from "../components/ProductCatalog";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <Hero />
+      <ProductCatalog />
     </div>
   );
 }
