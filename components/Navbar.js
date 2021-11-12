@@ -24,17 +24,11 @@ const Navbar = () => {
         <input placeholder="Search for products..." />
       </label>
       <div className={styles.spacer}></div>
-      <div className={styles.dropdown}>
-        <a className={styles.text}>Login/Register</a>
-                    <div className={styles.dropdown_content}>
-                        <a href="#">User 1</a>
-                        <a href="#">User 2</a>
-                        <a href="#">User 3</a>
-                        <a href="#">User 4</a>
-                        <a href="#">User 5</a>
-                        <a href="#">User 6</a>
-                    </div>
-                </div> 
+      <Link href="/recommend">
+        <div className={styles.box}>
+          <a className={styles.text}>Login/Register</a>
+        </div>
+      </Link>
     </nav>
   );
 };

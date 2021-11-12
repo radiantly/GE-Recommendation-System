@@ -3,7 +3,6 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import ProductCatalog from "../components/ProductCatalog";
 import styles from "../styles/Home.module.css";
-import Recommendation from "../components/Recommendation";
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -20,7 +19,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ProductCatalog />
-      <Recommendation />
     </div>
   );
 }
