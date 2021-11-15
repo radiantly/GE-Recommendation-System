@@ -41,8 +41,9 @@ export default function Recommendation({ people }) {
             <th>Item ID</th> <th>Action</th>
             <th>Timestamp</th>
           </tr>
-          {data[currentUser].map((action_row) => (
+          {data[currentUser].map((action_row, index) => (
             <tr
+              key={`${currentUser} ${index}`}
               onMouseOver={(e) =>
                 setCurrentImg(items[action_row[0]]["ITEM_IMAGE_LINK"])
               }
