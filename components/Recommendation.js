@@ -6,6 +6,7 @@ import * as items from "../Misc/items.json";
 
 export default function Recommendation({ people }) {
   const [currentUser, setCurrentUser] = useState(0);
+  const [currentImg, setCurrentImg] = useState(null);
 
   const personChangeHandler = (index) => {
     setCurrentUser(index);
@@ -19,9 +20,7 @@ export default function Recommendation({ people }) {
       <div className={styles.recommendation__header2}>
         See recommendations for&nbsp;
         <div className={styles.dropdown}>
-          <a className={styles.recommendation__link1}>
-            <u>{people[currentUser]}</u>
-          </a>
+          <a className={styles.recommendation__link1}>{people[currentUser]}</a>
           <div className={styles.dropdown_content}>
             {people.map((person, index) => (
               <a
@@ -35,20 +34,36 @@ export default function Recommendation({ people }) {
           </div>
         </div>
       </div>
-      <div className={styles.previously_clicked}>
-        <div></div>
-        <div>Item ID</div> <div>Action</div>
-        <div>Timestamp</div>
-        {data[currentUser].map((action_row) => [
-          <div>
-            <a href={items[action_row[0]]["ITEM_PRODUCT_LINK"]}>
-              <img src={items[action_row[0]]["ITEM_IMAGE_LINK"]} />
-            </a>
-          </div>,
-          <div>{action_row[0]}</div>,
-          <div>{action_row[1]}</div>,
-          <div>{action_row[2]}</div>,
-        ])}
+      <div className={styles.tableWrap}>
+        <table className={styles.previously_clicked}>
+          <tr>
+            <th></th>
+            <th>Item ID</th> <th>Action</th>
+            <th>Timestamp</th>
+          </tr>
+          {data[currentUser].map((action_row) => (
+            <tr
+              onMouseOver={(e) =>
+                setCurrentImg(items[action_row[0]]["ITEM_IMAGE_LINK"])
+              }
+              onMouseOut={(e) => setCurrentImg(null)}
+            >
+              <td>
+                <img src={items[action_row[0]]["ITEM_IMAGE_LINK"]} />
+              </td>
+              <td>
+                <a
+                  href={items[action_row[0]]["ITEM_PRODUCT_LINK"]}
+                  target="_blank"
+                >
+                  {action_row[0]}
+                </a>
+              </td>
+              <td>{action_row[1]}</td>
+              <td>{action_row[2]}</td>
+            </tr>
+          ))}
+        </table>
       </div>
       <div className={styles.recommendation__container}>
         <div className={styles.recommendation__square}></div>
@@ -59,6 +74,13 @@ export default function Recommendation({ people }) {
         <div className={styles.recommendation__square}></div>
         <div className={styles.recommendation__square}></div>
         <div className={styles.recommendation__square}></div>
+      </div>
+      <div
+        className={[styles.img_popover, currentImg ? "" : styles.hidden].join(
+          " "
+        )}
+      >
+        <img src={currentImg} />
       </div>
     </div>
   );
