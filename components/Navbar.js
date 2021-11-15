@@ -1,9 +1,16 @@
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
+import Head from "next/head";
 
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+          rel="stylesheet"
+        />
+      </Head>
       <Link href="/">
         <img className={styles.logo} src="ge.svg" />
       </Link>

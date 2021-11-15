@@ -69,10 +69,15 @@
   padding: 13px;
   font-size: 16px;
   font-family: Roboto;
+  flex-grow: 1;
 }
 
 .navbar .searchbar:hover {
   background-color: #e7e7e7;
+}
+
+.navbar .searchbar:focus-within {
+  background-color: #eee;
 }
 
 @media screen and (max-width: 600px) {

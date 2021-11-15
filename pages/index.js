@@ -10,10 +10,6 @@ export default function Home() {
         <title>GE Healthcare</title>
         <meta name="description" content="GE Healthcare" />
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
-          rel="stylesheet"
-        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navbar />
