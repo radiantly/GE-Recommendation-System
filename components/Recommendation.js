@@ -1,6 +1,9 @@
 import styles from "../styles/Recomendation.module.css";
 import { useState } from "react";
 
+import * as data from "../Misc/user_actions.json";
+import * as items from "../Misc/items.json";
+
 export default function Recommendation({ people }) {
   const [currentUser, setCurrentUser] = useState(0);
 
@@ -31,6 +34,21 @@ export default function Recommendation({ people }) {
             ))}
           </div>
         </div>
+      </div>
+      <div className={styles.previously_clicked}>
+        <div></div>
+        <div>Item ID</div> <div>Action</div>
+        <div>Timestamp</div>
+        {data[currentUser].map((action_row) => [
+          <div>
+            <a href={items[action_row[0]]["ITEM_PRODUCT_LINK"]}>
+              <img src={items[action_row[0]]["ITEM_IMAGE_LINK"]} />
+            </a>
+          </div>,
+          <div>{action_row[0]}</div>,
+          <div>{action_row[1]}</div>,
+          <div>{action_row[2]}</div>,
+        ])}
       </div>
       <div className={styles.recommendation__container}>
         <div className={styles.recommendation__square}></div>

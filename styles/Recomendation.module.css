@@ -13,7 +13,7 @@
 .recommendation__header2 {
   font-family: Roboto;
   font-style: normal;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 42px;
   line-height: 49px;
   color: #606060;
@@ -92,4 +92,45 @@
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.previously_clicked {
+  margin-top: 20px;
+  height: 400px;
+  display: grid;
+  max-width: 500px;
+  grid-template-columns: max-content repeat(3, minmax(0, 1fr));
+  overflow-y: scroll;
+  color: #444;
+  --cell-border: 1px solid #ccc;
+  scrollbar-width: none;
+}
+
+.previously_clicked img {
+  height: 30px;
+}
+
+.previously_clicked > div {
+  padding: 5px 10px;
+}
+
+.previously_clicked > div:nth-child(4n + 1) {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previously_clicked > div:nth-child(4n + 2) {
+  border-right: var(--cell-border);
+  border-bottom: var(--cell-border);
+}
+
+.previously_clicked > div:nth-child(4n + 3) {
+  border-bottom: var(--cell-border);
+}
+
+.previously_clicked > div:nth-child(4n + 4) {
+  border-bottom: var(--cell-border);
+  border-left: var(--cell-border);
 }

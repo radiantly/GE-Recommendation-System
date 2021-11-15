@@ -1,6 +1,5 @@
 import json
 
-import numpy as np
 import pandas as pd
 
 df = pd.read_excel("Data for Hackathon New.xlsx", sheet_name="Products")
