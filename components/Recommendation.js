@@ -2,7 +2,6 @@ import styles from "../styles/Recomendation.module.css";
 import { useState } from "react";
 
 export default function Recommendation({ people }) {
-  console.log(people);
   const [currentUser, setCurrentUser] = useState(0);
 
   const personChangeHandler = (index) => {
