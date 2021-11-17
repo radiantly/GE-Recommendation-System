@@ -41,7 +41,18 @@
   display: inline-block;
   width: 200px;
   height: 210px;
-  background: #c4c4c4;
+  background: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+}
+.recommendation__square img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+.recommendation__square:hover img {
+  transform: scale(1.2);
 }
 .dropdown {
   position: relative;

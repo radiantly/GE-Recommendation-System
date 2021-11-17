@@ -1,5 +1,5 @@
 import styles from "../styles/Recomendation.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import * as data from "../Misc/user_actions.json";
 import * as items from "../Misc/items.json";
@@ -7,6 +7,23 @@ import * as items from "../Misc/items.json";
 export default function Recommendation({ people }) {
   const [currentUser, setCurrentUser] = useState(0);
   const [currentImg, setCurrentImg] = useState(null);
+
+  const [recommendations, setRecommendations] = useState([]);
+
+  const fetchRecs = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_PERSONALIZE_API_URL}?userID=${
+        currentUser + 10000
+      }`
+    );
+    const jsonResp = await response.json();
+    setRecommendations(jsonResp.items);
+    console.log(jsonResp);
+  };
+
+  useEffect(() => {
+    fetchRecs();
+  });
 
   const personChangeHandler = (index) => {
     setCurrentUser(index);
@@ -67,14 +84,11 @@ export default function Recommendation({ people }) {
         </table>
       </div>
       <div className={styles.recommendation__container}>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
-        <div className={styles.recommendation__square}></div>
+        {recommendations.map((item) => (
+          <div className={styles.recommendation__square}>
+            <img src={items[item.itemId]["ITEM_IMAGE_LINK"]} />
+          </div>
+        ))}
       </div>
       <div
         className={[styles.img_popover, currentImg ? "" : styles.hidden].join(
