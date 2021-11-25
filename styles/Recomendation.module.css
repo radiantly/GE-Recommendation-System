@@ -41,7 +41,7 @@
   display: inline-block;
   width: 200px;
   height: 210px;
-  background: #000;
+  background: #fefefe;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   cursor: pointer;
@@ -112,8 +112,10 @@
 .tableWrap {
   scrollbar-width: none;
   overflow-y: scroll;
-  height: 400px;
-  margin-top: 20px;
+  height: 500px;
+  margin-top: 25px;
+  display: inline-block;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .previously_clicked {
