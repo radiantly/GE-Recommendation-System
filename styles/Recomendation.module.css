@@ -121,7 +121,7 @@
 .tableWrap thead th {
   position: sticky;
   top: 0;
-  background-color: black;
+  background-color: #00008b;
   color: white;
 }
 .previously_clicked {
