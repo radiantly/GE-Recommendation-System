@@ -118,6 +118,12 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.tableWrap thead th {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: white;
+}
 .previously_clicked {
   max-width: 500px;
   grid-template-columns: max-content repeat(3, minmax(0, 1fr));

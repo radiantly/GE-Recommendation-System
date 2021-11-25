@@ -53,11 +53,12 @@ export default function Recommendation({ people }) {
       </div>
       <div className={styles.tableWrap}>
         <table className={styles.previously_clicked}>
+          <thead>
           <tr>
             <th></th>
             <th>Item ID</th> <th>Action</th>
             <th>Timestamp</th>
-          </tr>
+          </tr></thead>
           {data[currentUser].map((action_row, index) => (
             <tr
               key={`${currentUser} ${index}`}
