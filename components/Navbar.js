@@ -10,6 +10,10 @@ const Navbar = () => {
           href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Link href="/">
         <img className={styles.logo} src="ge.svg" />
@@ -21,7 +25,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/about">
         <div className={[styles.box, styles.desktoponly].join(" ")}>
           <a className={styles.text}>About</a>
         </div>

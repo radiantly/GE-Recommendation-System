@@ -21,10 +21,10 @@
 }
 
 .recomendation__main .recommendation__link1 {
-  color: #0870d8;
+  color: var(--blue);
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 1px solid #0870d8;
+  border-bottom: 1px solid var(--blue);
   text-align: center;
   padding: 0;
 }

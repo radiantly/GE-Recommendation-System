@@ -1,0 +1,26 @@
+.main_container {
+  padding: 5vh var(--side-padding) 0;
+}
+
+.main_container h2 {
+  font-size: 3rem;
+  font-weight: 100;
+  color: #111;
+}
+
+.main_container p {
+  font-family: Poppins;
+  color: #333;
+  line-height: 1.8;
+}
+
+.main_container a {
+  font-family: Poppins;
+  text-decoration: underline dotted;
+  color: #444;
+}
+
+.main_container a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
