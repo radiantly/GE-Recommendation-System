@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Catalog from "../components/catalog";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import ProductCatalog from "../components/ProductCatalog";
@@ -14,7 +15,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <Hero />
-      <ProductCatalog />
+      <Catalog/>
     </div>
   );
 }
