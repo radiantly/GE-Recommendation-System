@@ -11,6 +11,8 @@
       <details>
       <summary>Bucket policy</summary>
 
+      Replace `BUCKET_NAME` with your bucket name below.
+
       ```json
       {
         "Version": "2012-10-17",
@@ -24,8 +26,8 @@
             },
             "Action": ["s3:GetObject", "s3:ListBucket"],
             "Resource": [
-              "arn:aws:s3:::personalizege",
-              "arn:aws:s3:::personalizege/*"
+              "arn:aws:s3:::BUCKET_NAME",
+              "arn:aws:s3:::BUCKET_NAME/*"
             ]
           }
         ]

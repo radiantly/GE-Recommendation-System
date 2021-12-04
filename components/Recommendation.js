@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import * as data from "../Misc/user_actions.json";
 import * as items from "../Misc/items.json";
+import * as cached_recommendations from "../Misc/cached_rec.json";
 
 export default function Recommendation({ people }) {
   const [currentUser, setCurrentUser] = useState(0);
@@ -11,12 +12,16 @@ export default function Recommendation({ people }) {
   const [recommendations, setRecommendations] = useState([]);
 
   const fetchRecs = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_PERSONALIZE_API_URL}?userID=${
-        currentUser + 10000
-      }`
-    );
-    const jsonResp = await response.json();
+    // Realtime
+    // const response = await fetch(
+    //   `${process.env.NEXT_PUBLIC_PERSONALIZE_API_URL}?userID=${
+    //     currentUser + 10000
+    //   }`
+    // );
+    // const jsonResp = await response.json();
+
+    // Cached
+    const jsonResp = cached_recommendations[currentUser];
     setRecommendations(jsonResp.items);
     console.log(jsonResp);
   };
@@ -54,11 +59,12 @@ export default function Recommendation({ people }) {
       <div className={styles.tableWrap}>
         <table className={styles.previously_clicked}>
           <thead>
-          <tr>
-            <th></th>
-            <th>Item ID</th> <th>Action</th>
-            <th>Timestamp</th>
-          </tr></thead>
+            <tr>
+              <th></th>
+              <th>Item ID</th> <th>Action</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
           {data[currentUser].map((action_row, index) => (
             <tr
               key={`${currentUser} ${index}`}
