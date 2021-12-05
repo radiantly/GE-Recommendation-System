@@ -5,7 +5,7 @@ import data from "./utils/popularProductsData";
 import styles from "../styles/Catalog.module.css";
 
 const Catalog = () => {
-    return(
+    return (
         <div className={styles.catalog_div}>
             <h1>
                 Product Catalog
@@ -25,14 +25,13 @@ const Catalog = () => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Typography>
-                                    {product.item_family}
+                                <Typography className={styles.text}>
+                                    <b> {product.item_family} </b>
                                 </Typography>
-                                <Button size="small" color="primary">
+                                <Button size="small" color="secondary">
                                     Add to Cart
                                 </Button>
                             </CardActions>
-
                         </Card>
                     </Grid>
 
