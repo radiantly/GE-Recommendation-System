@@ -22,7 +22,7 @@ export default function About() {
             Arun Joshua
           </a>
           ,{" "}
-          <a href="https://github.com/samkeating" target="_blank">
+          <a href="https://www.linkedin.com/in/samyuktha-thiruvengadam-90495b179/" target="_blank">
             Samyuktha
           </a>
           ,{" "}
