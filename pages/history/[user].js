@@ -27,29 +27,38 @@ const History = ({ currentUser }) => {
                 <th>Timestamp</th>
               </tr>
             </thead>
-            {[...data[currentUser]].reverse().map((action_row, index) => (
-              <tr
-                key={`${currentUser} ${index}`}
-                onMouseOver={(e) =>
-                  setCurrentImg(items[action_row[0]]["ITEM_IMAGE_LINK"])
-                }
-                onMouseOut={(e) => setCurrentImg(null)}
-              >
-                <td>
-                  <img src={items[action_row[0]]["ITEM_IMAGE_LINK"]} />
-                </td>
-                <td>
-                  <a
-                    href={items[action_row[0]]["ITEM_PRODUCT_LINK"]}
-                    target="_blank"
-                  >
-                    {action_row[0]}
-                  </a>
-                </td>
-                <td>{action_row[1]}</td>
-                <td>{action_row[2]}</td>
-              </tr>
-            ))}
+            {[...data[currentUser]].reverse().map((action_row, index) => {
+              let [id, action, timestamp] = action_row;
+
+              // Normalize timestamp
+              timestamp -= 60 * 60 * 24 * 60;
+              const { ITEM_NAME, ITEM_IMAGE_LINK, ITEM_PRODUCT_LINK } =
+                items[id];
+              return (
+                <tr
+                  key={`${currentUser} ${index}`}
+                  onMouseOver={(e) => setCurrentImg(ITEM_IMAGE_LINK)}
+                  onMouseOut={(e) => setCurrentImg(null)}
+                >
+                  <td>
+                    <img src={ITEM_IMAGE_LINK} />
+                  </td>
+                  <td>
+                    {ITEM_NAME}{" "}
+                    <a href={ITEM_PRODUCT_LINK} target="_blank">
+                      ({id})
+                    </a>
+                  </td>
+                  <td>{action}</td>
+                  <td>
+                    {timestamp}{" "}
+                    <span className={styles.timedate}>
+                      ({new Date(timestamp * 1000).toLocaleString()})
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
           </table>
         </div>
       </div>
@@ -68,7 +77,7 @@ export default History;
 
 export async function getStaticProps({ params: { user } }) {
   const currentUser = user - 10000;
-  if (isNaN(currentUser))
+  if (isNaN(currentUser) || currentUser < 0 || currentUser >= 1000)
     return {
       notFound: true,
     };

@@ -1,6 +1,6 @@
 # GE
 
-> Our team project for the GE Hack-E-Health Hackathon
+> Our team project for the GE Hack-E-LTH '21 Hackathon
 
 ## Getting started
 

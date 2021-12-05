@@ -10,11 +10,9 @@ h2.heading {
 
 .tableWrap {
   scrollbar-width: none;
-  overflow-y: scroll;
-  height: 500px;
-  margin-top: 25px;
+  margin: 25px 0;
   display: inline-block;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 100%;
 }
 
 .tableWrap thead th {
@@ -24,7 +22,7 @@ h2.heading {
   color: white;
 }
 .previously_clicked {
-  max-width: 500px;
+  width: 100%;
   grid-template-columns: max-content repeat(3, minmax(0, 1fr));
   color: #555;
   --cell-border: 1px solid #ddd;
@@ -40,7 +38,7 @@ h2.heading {
 }
 
 .previously_clicked tr:hover {
-  background-color: #eee;
+  background-color: #f1f1f1;
 }
 
 .previously_clicked td {
@@ -64,14 +62,20 @@ h2.heading {
   border-right: none;
 }
 
+.previously_clicked tr td .timedate {
+  color: #999;
+  font-style: italic;
+}
+
 .previously_clicked img {
   height: 30px;
   mix-blend-mode: darken;
 }
 
 .previously_clicked a {
-  color: #555;
+  color: #999;
   text-decoration: none;
+  font-style: italic;
 }
 
 .previously_clicked a:hover {
@@ -80,7 +84,7 @@ h2.heading {
 .img_popover {
   position: fixed;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   transition: opacity 0.2s ease-in-out;
