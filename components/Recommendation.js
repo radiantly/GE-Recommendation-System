@@ -92,10 +92,15 @@ export default function Recommendation({ people }) {
       </div>
       <div className={styles.recommendation__container}>
         {recommendations.map((item) => (
+          <element>
           <div className={styles.recommendation__square}>
             <img src={items[item.itemId]["ITEM_IMAGE_LINK"]} />
           </div>
+          <h4><b>{items[item.itemId]["ITEM_NAME"]}</b></h4> 
+
+          </element>
         ))}
+
       </div>
       <div
         className={[styles.img_popover, currentImg ? "" : styles.hidden].join(
