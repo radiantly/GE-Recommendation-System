@@ -11,10 +11,9 @@ export default function About() {
       <div className={styles.main_container}>
         <h2>About</h2>
         <p>
-          This website is a part of our project for the GE-Hack-E-Health
-          Hackathon. It showcases a proof-of-concept of how Amazon Personalize
-          can be used to enhance user experience by generating relevant product
-          suggestions.
+          This website is a part of our project for the GE-Hack-E-LTH Hackathon.
+          It showcases a proof-of-concept of how Amazon Personalize can be used
+          to enhance user experience by generating relevant product suggestions.
         </p>
         <p>
           {" "}

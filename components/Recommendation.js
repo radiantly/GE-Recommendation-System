@@ -1,5 +1,6 @@
 import styles from "../styles/Recomendation.module.css";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import * as items from "../Misc/items.json";
 import * as cached_recommendations from "../Misc/cached_rec.json";
@@ -54,31 +55,30 @@ export default function Recommendation({ people }) {
             </div>
           </div>
         </div>
-        <a
-          href={`/history/${currentUser + 10000}`}
-          className={styles.showhistory}
-        >
-          Show customer history
-        </a>
+        <Link href={`/history/${currentUser + 10000}`}>
+          <a className={styles.showhistory}>Show customer history</a>
+        </Link>
       </div>
       <div className={styles.recommendation__container}>
         {recommendations.map((item) => (
-          <element>
-            <div className={styles.recommendation__square}>
-              <img
-                src={items[item.itemId]["ITEM_IMAGE_LINK"]}
-                key={items[item.itemId]["ITEM_IMAGE_LINK"]}
-              />
-              <div className={styles.text}>
-                <div className={styles.textbox}>
-                  <div className={styles.itemTitle}>
-                    {items[item.itemId]["ITEM_NAME"]}
-                  </div>
-                  <div className={styles.itemId}>Product ID: {item.itemId}</div>
+          <a
+            href={items[item.itemId]["ITEM_PRODUCT_LINK"]}
+            className={styles.recommendation__square}
+            target="_blank"
+          >
+            <img
+              src={items[item.itemId]["ITEM_IMAGE_LINK"]}
+              key={items[item.itemId]["ITEM_IMAGE_LINK"]}
+            />
+            <div className={styles.text}>
+              <div className={styles.textbox}>
+                <div className={styles.itemTitle}>
+                  {items[item.itemId]["ITEM_NAME"]}
                 </div>
+                <div className={styles.itemId}>Product ID: {item.itemId}</div>
               </div>
             </div>
-          </element>
+          </a>
         ))}
       </div>
     </div>
