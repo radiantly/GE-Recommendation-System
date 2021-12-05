@@ -3,6 +3,12 @@
   --blue: #0870d8;
 }
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -19,10 +25,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 @media screen and (max-width: 600px) {

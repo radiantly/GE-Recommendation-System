@@ -16,7 +16,7 @@ const Navbar = () => {
         />
       </Head>
       <Link href="/">
-        <img className={styles.logo} src="ge.svg" />
+        <img className={styles.logo} src="/ge.svg" />
       </Link>
 
       <Link href="/">
