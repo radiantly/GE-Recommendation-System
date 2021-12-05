@@ -26,7 +26,7 @@ const Catalog = () => {
                             </CardActionArea>
                             <CardActions>
                                 <Typography>
-                                    {product.item_category}
+                                    {product.item_family}
                                 </Typography>
                                 <Button size="small" color="primary">
                                     Add to Cart
