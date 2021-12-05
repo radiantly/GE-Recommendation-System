@@ -34,7 +34,7 @@ const data = {
                         item_link: 'https://services.gehealthcare.com/gehcstorefront/p/DUR-A2-2A?catalogCode=01'
                         },
                         {
-                            item_name: 'CLASSIC-CUF ISO, Small Adult, 2 TB Submin',
+                            item_name: 'CLASSIC-CUF ISO, Small Adult, 2 TB',
                             item_family: 'Non Invasive Blood pressure',
                             image: 'https://services.gehealthcare.com/medias/Classic-Cuf-Family-Yellow-Isolation.jpg?context=bWFzdGVyfGltYWdlc3wxODIyODZ8aW1hZ2UvanBlZ3xpbWFnZXMvaDYxL2g0NS84OTU4MjY4MDgwMTU4LmpwZ3wyMTQwZTM5NDg0MzE0OWMwZWI2Y2Y4MTkwNGFmMGQzOGMwZjY3ODRlMjI2OWMzOTRmM2M4ZTI0YWYwOTJjN2Fi',
                             item_link: 'https://services.gehealthcare.com/gehcstorefront/p/2672?catalogCode=01'
