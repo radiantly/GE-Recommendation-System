@@ -22,6 +22,7 @@
   transition: background 0.1s ease-in-out;
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
 }
 
 .navbar .box:hover {
@@ -78,6 +79,48 @@
 
 .navbar .searchbar:focus-within {
   background-color: #eee;
+}
+
+.tooltip {
+  --tip-height: 0.666rem;
+  position: absolute;
+  top: 100%;
+  width: max-content;
+  padding: 10px 15px;
+  transform: translate(-50%);
+  left: 50%;
+  margin-top: calc(var(--tip-height) - 1px);
+  border: 2px solid var(--blue);
+  /* border: 2px solid #448ed7; */
+  border-radius: 5px;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  pointer-events: none;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  width: var(--tip-height);
+  height: var(--tip-height);
+  border-color: var(--blue);
+  border-width: 2px 0 0 2px;
+  z-index: 2;
+  background-color: white;
+  border-style: solid;
+  margin-top: -1px;
+  pointer-events: none;
+}
+
+.tooltip.hidden {
+  opacity: 0;
+  transform: translate(-50%, 50%);
 }
 
 @media screen and (max-width: 600px) {

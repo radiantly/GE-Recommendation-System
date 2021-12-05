@@ -2,21 +2,35 @@ import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
 import Head from "next/head";
 
-const Navbar = () => {
+import { useEffect, useState } from "react";
+
+const Navbar = ({ showToolTip }) => {
+  const [toolTipVisible, setToolTipVisible] = useState(false);
+
+  if (showToolTip)
+    useEffect(() => {
+      console.log("HERERERERE");
+      const checkAndShowTip = () => {
+        console.log(document.readyState);
+        if (document.readyState == "complete") {
+          console.log("DONE");
+          setTimeout(setToolTipVisible, 1000, true);
+          setTimeout(setToolTipVisible, 6000, false);
+        }
+      };
+      document.addEventListener("readystatechange", checkAndShowTip);
+      checkAndShowTip();
+    }, []);
+
   return (
     <nav className={styles.navbar}>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap"
-          rel="stylesheet"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Link href="/">
-        <img className={styles.logo} src="/ge.svg" />
+        <a>
+          <img className={styles.logo} src="/ge.svg" />
+        </a>
       </Link>
 
       <Link href="/">
@@ -38,6 +52,14 @@ const Navbar = () => {
       <Link href="/recommend">
         <div className={styles.box}>
           <a className={styles.text}>Login/Register</a>
+          <div
+            className={[
+              styles.tooltip,
+              toolTipVisible ? "" : styles.hidden,
+            ].join(" ")}
+          >
+            See recommendations
+          </div>
         </div>
       </Link>
     </nav>
