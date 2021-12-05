@@ -1,10 +1,7 @@
-import { useRouter } from "next/router";
 import Head from "next/head";
 
-import Navbar from "../../components/Navbar";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import homeStyles from "../../styles/Home.module.css";
 import styles from "../../styles/History.module.css";
 import * as data from "../../Misc/user_actions.json";
 import * as items from "../../Misc/items.json";
@@ -13,11 +10,10 @@ const History = ({ currentUser }) => {
   const [currentImg, setCurrentImg] = useState(null);
 
   return (
-    <div className={homeStyles.container}>
+    <>
       <Head>
         <title>History | User {currentUser + 10000}</title>
       </Head>
-      <Navbar />
       <div className={styles.main_container}>
         <h2 className={styles.heading}>
           History for User {currentUser + 10000}
@@ -64,7 +60,7 @@ const History = ({ currentUser }) => {
       >
         <img src={currentImg} />
       </div>
-    </div>
+    </>
   );
 };
 

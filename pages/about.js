@@ -1,16 +1,13 @@
-import homeStyles from "../styles/Home.module.css";
-import Navbar from "../components/Navbar";
 import Head from "next/head";
 
 import styles from "../styles/About.module.css";
 
 export default function About() {
   return (
-    <div className={homeStyles.container}>
+    <>
       <Head>
         <title>About</title>
       </Head>
-      <Navbar />
       <div className={styles.main_container}>
         <h2>About</h2>
         <p>
@@ -47,6 +44,6 @@ export default function About() {
           .
         </p>
       </div>
-    </div>
+    </>
   );
 }

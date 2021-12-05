@@ -1,26 +1,25 @@
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { useEffect, useState } from "react";
 
-const Navbar = ({ showToolTip }) => {
+const Navbar = () => {
+  const router = useRouter();
   const [toolTipVisible, setToolTipVisible] = useState(false);
 
-  if (showToolTip)
-    useEffect(() => {
-      console.log("HERERERERE");
-      const checkAndShowTip = () => {
-        console.log(document.readyState);
-        if (document.readyState == "complete") {
-          console.log("DONE");
-          setTimeout(setToolTipVisible, 1000, true);
-          setTimeout(setToolTipVisible, 6000, false);
-        }
-      };
-      document.addEventListener("readystatechange", checkAndShowTip);
-      checkAndShowTip();
-    }, []);
+  useEffect(() => {
+    const checkAndShowTip = () => {
+      console.log(document.readyState);
+      if (router.pathname === "/" && document.readyState === "complete") {
+        setTimeout(setToolTipVisible, 1000, true);
+        setTimeout(setToolTipVisible, 6000, false);
+      }
+    };
+    document.addEventListener("readystatechange", checkAndShowTip);
+    checkAndShowTip();
+  }, []);
 
   return (
     <nav className={styles.navbar}>
