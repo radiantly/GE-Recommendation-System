@@ -8,21 +8,18 @@ export const products = [
       "https://services.gehealthcare.com/gehcstorefront/p/8004382?catalogCode=01",
   },
   {
-    item_name: "Sony UPP-110HG High-Glossy Black & White",
-    item_family: "Ultrasound Image Papers",
-    image:
-      "https://services.gehealthcare.com//medias?context=bWFzdGVyfGltYWdlc3w3NjM1fGltYWdlL2pwZWd8aW1hZ2VzL2g2ZC9oODUvODc5NjMzMzE0NjE0Mi5qcGd8YmEyODc1N2M3NTZiZjEwNGMzYTU0NWEyMmEyYWRhODQzZjhmYTVhMTBmOWFlYTBiMWM1OWFkZTBmOGQ0ZDI5Zg",
-    item_link:
-      "https://services.gehealthcare.com/gehcstorefront/p/E8310LC?catalogCode=01",
+    item_name: "Anesthesia Flow Sensor, ABS, 1/pack",
+    item_family: "Flow Sensors", 
+    image: "https://services.gehealthcare.com//medias/2089610-001-Anesthesia-Flow-Sensor-ABS-Reusable.jpg?context=bWFzdGVyfGltYWdlc3wzNjkzOXxpbWFnZS9qcGVnfGltYWdlcy9oY2UvaDAwLzg5Mzk2MjE5NzQwNDYuanBnfGMyOTJkMTg1MThjYjZmZTI4MTEyNDI5ZGIzMDhhYTczMmRiYmYxYThlNWU1MjYxNTI5NjM2MzNhZjMxODJlOGE",
+    item_link: "https://services.gehealthcare.com/gehcstorefront/p/2089610-001-S?catalogCode=01"
   },
   {
-    item_name: "Trophon 2",
-    item_family: "Probe Disinfection & Storage",
-    image:
-      "https://services.gehealthcare.com//medias/E8350MA.jpg?context=bWFzdGVyfGltYWdlc3w4MjAyNHxpbWFnZS9qcGVnfGltYWdlcy9oNTkvaGI3Lzg4NDI4MTI4NTAyMDYuanBnfGZmM2VmNjAwYTRiNjcyMzYxZmY0MmM0ZGFiMjZjZGUzNjEyNmZmNzIxYzhiZmZhZGZlYjczODE5ZWRhOGUwNGM",
-    item_link:
-      "https://services.gehealthcare.com/gehcstorefront/p/E8350MA?catalogCode=01",
+    item_name: "Single Patient Use Flow Sensor, 1/pack", 
+    item_family: "Clinical Accessories", "ITEM_FAMILY": "Respiratory Care", 
+    image: "https://services.gehealthcare.com//medias/1505-3231-001-Respiratory-Flow-Sensor-Single-Patient-Use.jpg?context=bWFzdGVyfGltYWdlc3wyMzA3MDJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDljL2g1OC84OTQzMzMzNjcwOTQyLmpwZ3w0NGE3ZDMzOWFiYmRmOWEyYjJhYjg3N2I1MmFhMTFjY2Y0OTc2ZGFjMDBhOTZlZTRlYzNhYjgzYmMwZTM3NDZl", 
+    item_link: "https://services.gehealthcare.com/gehcstorefront/p/1505-3231-001?catalogCode=01"
   },
+  
   {
     item_name: "Printer Mount for trophon Cart",
     item_family: "Ultrasound/Probe Disinfection",
@@ -47,4 +44,28 @@ export const products = [
     item_link:
       "https://services.gehealthcare.com/gehcstorefront/p/2672?catalogCode=01",
   },
+  {
+    item_name: "Sony UPP-110HG High-Glossy Black & White",
+    item_family: "Ultrasound Image Papers",
+    image:
+      "https://services.gehealthcare.com//medias?context=bWFzdGVyfGltYWdlc3w3NjM1fGltYWdlL2pwZWd8aW1hZ2VzL2g2ZC9oODUvODc5NjMzMzE0NjE0Mi5qcGd8YmEyODc1N2M3NTZiZjEwNGMzYTU0NWEyMmEyYWRhODQzZjhmYTVhMTBmOWFlYTBiMWM1OWFkZTBmOGQ0ZDI5Zg",
+    item_link:
+      "https://services.gehealthcare.com/gehcstorefront/p/E8310LC?catalogCode=01",
+  },
+  
+
+  {
+    item_name: "Trophon 2",
+    item_family: "Probe Disinfection & Storage",
+    image:
+      "https://services.gehealthcare.com//medias/E8350MA.jpg?context=bWFzdGVyfGltYWdlc3w4MjAyNHxpbWFnZS9qcGVnfGltYWdlcy9oNTkvaGI3Lzg4NDI4MTI4NTAyMDYuanBnfGZmM2VmNjAwYTRiNjcyMzYxZmY0MmM0ZGFiMjZjZGUzNjEyNmZmNzIxYzhiZmZhZGZlYjczODE5ZWRhOGUwNGM",
+    item_link:
+      "https://services.gehealthcare.com/gehcstorefront/p/E8350MA?catalogCode=01",
+  },
+  {
+    item_name: "SpO₂ Cable - Masimo, 1/pack",
+     ITEM_FAMILY: "Patient Monitoring",
+    image: "https://services.gehealthcare.com/medias/2059005-001-001.jpg?context=bWFzdGVyfGltYWdlc3wxODY3MDl8aW1hZ2UvanBlZ3xpbWFnZXMvaGEzL2g3YS84ODU1ODI1MzUwNjg2LmpwZ3w5MmM1MDkyMzc1NmFjNzEwY2FhNjE1Y2M3NTcxMGViYjIyYjg5ZjMxOWMxMWYyZTc1MDlhYzRhOWRkMzkxMjIy", 
+    item_link: "https://services.gehealthcare.com/gehcstorefront/p/2059005-001?catalogCode=01"
+  }
 ];

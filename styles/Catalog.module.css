@@ -15,8 +15,7 @@
 
 .catalog_section .card {
   width: 100%;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 10px;
   cursor: pointer;
   position: relative;
@@ -25,6 +24,7 @@
 
 .catalog_section .card:hover {
   background-color: #f5f5f5;
+  transform: scale(0.98);
 }
 
 .catalog_section .card img {
