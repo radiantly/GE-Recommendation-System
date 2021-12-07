@@ -1,43 +1,36 @@
-import Link from "next/link";
-import Head from "next/head";
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
-import data from "./utils/popularProductsData";
 import styles from "../styles/Catalog.module.css";
+import { toast } from "react-toastify";
+import { products } from "./utils/popularProductsData";
 
 const Catalog = () => {
-    return (
-        <div className={styles.catalog_div}>
-            <h1>
-                Product Catalog
-            </h1>
-            <Grid container spacing={3} className={styles.grid}>
-                {data.products.map((product) => (
-                    <Grid item xs={12} sm={6} md={4} key={product.name}>
-                        <Card className={styles.card}>
-                            <CardActionArea href={product.item_link} target="_blank">
-                                <CardMedia component="img" image={product.image} title={product.name}>
-                                </CardMedia>
-                                <CardContent>
-                                    <Typography>
-                                        {product.item_name}
-
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Typography className={styles.text}>
-                                    <b> {product.item_family} </b>
-                                </Typography>
-                                <Button size="small" color="secondary">
-                                    Add to Cart
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-
-                ))}
-            </Grid>
-        </div>
-    );
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toast("ADDED_TO_CART: Interaction recorded", {
+      hideProgressBar: true,
+    });
+  };
+  return (
+    <div className={styles.catalog_section}>
+      <a id="catalog">
+        <h1>Product Catalog</h1>
+      </a>
+      <div className={styles.grid}>
+        {products.map((product) => (
+          <a href={product.item_link} target="_blank" key={product.item_name}>
+            <div className={styles.card}>
+              <img src={product.image} />
+              <div className={styles.card_row}>
+                <div className={styles.card_title}>{product.item_name}</div>
+                <div className={styles.add_to_cart} onClick={handleAddToCart}>
+                  Add to cart
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
 };
 export default Catalog;

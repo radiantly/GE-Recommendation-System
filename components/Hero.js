@@ -13,7 +13,9 @@ const Hero = () => {
             We enable faster, more informed decisions through intelligent
             devices, data, analytics, applications and services.
           </div>
-          <button className={styles.btn}>Browse our products</button>
+          <a href="#catalog">
+            <button className={styles.btn}>Browse our products</button>
+          </a>
         </div>
         <div className={styles.pic}>
           <img src="ge-promo.webp" />
