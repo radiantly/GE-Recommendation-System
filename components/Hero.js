@@ -1,11 +1,17 @@
 import styles from "../styles/Hero.module.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Hero = () => {
+  useEffect(() => {
+    Aos.init({ duration: 5000 });
+  }, []);
   return (
-    <section className={styles.hero_section}>
+    <section className={styles.hero_section} >
       <div className={styles.main}>
-        <div className={styles.text}>
-          <div className={styles.big}>GE Healthcare</div>
+        <div className={styles.text} data-aos="fade-right">
+          <div className={styles.big} >GE Healthcare</div>
           <div className={styles.tagline}>
             Improving lives in the moments that matter
           </div>
@@ -17,7 +23,7 @@ const Hero = () => {
             <button className={styles.btn}>Browse our products</button>
           </a>
         </div>
-        <div className={styles.pic}>
+        <div className={styles.pic} data-aos="fade-left">
           <img src="ge-promo.webp" />
         </div>
       </div>
