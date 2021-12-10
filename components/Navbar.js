@@ -39,7 +39,7 @@ const Navbar = () => {
       </Link>
 
       <Link href="/about">
-        <div className={[styles.box, styles.desktoponly].join(" ")}>
+        <div className={styles.box}>
           <a className={styles.text}>About</a>
         </div>
       </Link>

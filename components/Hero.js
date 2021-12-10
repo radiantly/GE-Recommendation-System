@@ -21,6 +21,12 @@ const Hero = () => {
           <img src="ge-promo.webp" />
         </div>
       </div>
+      <div className={styles.godown_wrap}>
+        <a href="#catalog" className={styles.godown_box}>
+          Product Catalog
+          <span className="material-icons-round">keyboard_arrow_down</span>
+        </a>
+      </div>
     </section>
   );
 };

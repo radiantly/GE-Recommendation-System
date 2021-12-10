@@ -11,9 +11,19 @@ export default function About() {
       <div className={styles.main_container}>
         <h2>About</h2>
         <p>
-          This website is a part of our project for the GE-Hack-E-LTH Hackathon.
+          This website is a part of our project for the GE Hack-E-LTH Hackathon.
           It showcases a proof-of-concept of how Amazon Personalize can be used
           to enhance user experience by generating relevant product suggestions.
+          Find our project demo video below:
+        </p>
+        <p className={styles.video}>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/F2FVdTB1JAY"
+            title="Project Demo on YouTube"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
+            allowfullscreen
+          ></iframe>
         </p>
         <p>
           {" "}
@@ -22,7 +32,10 @@ export default function About() {
             Arun Joshua
           </a>
           ,{" "}
-          <a href="https://www.linkedin.com/in/samyuktha-thiruvengadam-90495b179/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/samyuktha-thiruvengadam-90495b179/"
+            target="_blank"
+          >
             Samyuktha
           </a>
           ,{" "}

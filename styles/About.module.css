@@ -14,6 +14,26 @@
   line-height: 1.8;
 }
 
+.main_container .video {
+  position: relative;
+  width: 560px;
+  max-width: 100%;
+}
+
+.main_container .video::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.main_container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .main_container a {
   font-family: Poppins;
   text-decoration: underline dotted;

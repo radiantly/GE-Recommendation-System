@@ -18,11 +18,12 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  height: 100%;
   transition: background 0.1s ease-in-out;
   cursor: pointer;
   flex-shrink: 0;
   position: relative;
+  user-select: none;
+  align-self: stretch;
 }
 
 .navbar .box:hover {
