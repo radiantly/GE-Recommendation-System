@@ -1,5 +1,6 @@
 export const products = [
   {
+    item_id: "8004382",
     item_name: "D-lite+ Patient Spirometry Kit",
     item_family: "Spirometry",
     image:
@@ -7,13 +8,14 @@ export const products = [
     item_link:
       "https://services.gehealthcare.com/gehcstorefront/p/8004382?catalogCode=01",
   },
-  {
+  { item_id:"2089610-001-S",
     item_name: "Anesthesia Flow Sensor, ABS, 1/pack",
     item_family: "Flow Sensors", 
     image: "https://services.gehealthcare.com//medias/2089610-001-Anesthesia-Flow-Sensor-ABS-Reusable.jpg?context=bWFzdGVyfGltYWdlc3wzNjkzOXxpbWFnZS9qcGVnfGltYWdlcy9oY2UvaDAwLzg5Mzk2MjE5NzQwNDYuanBnfGMyOTJkMTg1MThjYjZmZTI4MTEyNDI5ZGIzMDhhYTczMmRiYmYxYThlNWU1MjYxNTI5NjM2MzNhZjMxODJlOGE",
     item_link: "https://services.gehealthcare.com/gehcstorefront/p/2089610-001-S?catalogCode=01"
   },
   {
+    item_id: "1505-3231-001",
     item_name: "Single Patient Use Flow Sensor, 1/pack", 
     item_family: "Clinical Accessories", "ITEM_FAMILY": "Respiratory Care", 
     image: "https://services.gehealthcare.com//medias/1505-3231-001-Respiratory-Flow-Sensor-Single-Patient-Use.jpg?context=bWFzdGVyfGltYWdlc3wyMzA3MDJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDljL2g1OC84OTQzMzMzNjcwOTQyLmpwZ3w0NGE3ZDMzOWFiYmRmOWEyYjJhYjg3N2I1MmFhMTFjY2Y0OTc2ZGFjMDBhOTZlZTRlYzNhYjgzYmMwZTM3NDZl", 
@@ -21,6 +23,7 @@ export const products = [
   },
   
   {
+    item_id: "E8350MG",
     item_name: "Printer Mount for trophon Cart",
     item_family: "Ultrasound/Probe Disinfection",
     image:
@@ -29,6 +32,7 @@ export const products = [
       "https://services.gehealthcare.com/gehcstorefront/p/E8350MG?catalogCode=01",
   },
   {
+    item_id:"2130",
     item_name: "DURA-CUF, Adult, DINACLICK, 23 - 33 cm",
     item_family: "Non Invasive Blood pressure",
     image:
@@ -37,6 +41,7 @@ export const products = [
       "https://services.gehealthcare.com/gehcstorefront/p/DUR-A2-2A?catalogCode=01",
   },
   {
+    item_id:"2672",
     item_name: "CLASSIC-CUF ISO, Small Adult, 2 TB",
     item_family: "Non Invasive Blood pressure",
     image:
@@ -45,6 +50,7 @@ export const products = [
       "https://services.gehealthcare.com/gehcstorefront/p/2672?catalogCode=01",
   },
   {
+    item_id:"E8310LC",
     item_name: "Sony UPP-110HG High-Glossy Black & White",
     item_family: "Ultrasound Image Papers",
     image:
@@ -55,6 +61,7 @@ export const products = [
   
 
   {
+    item_id:"E8350MA",
     item_name: "Trophon 2",
     item_family: "Probe Disinfection & Storage",
     image:
@@ -63,6 +70,7 @@ export const products = [
       "https://services.gehealthcare.com/gehcstorefront/p/E8350MA?catalogCode=01",
   },
   {
+    item_id: "2059005-001",
     item_name: "SpO₂ Cable - Masimo, 1/pack",
      ITEM_FAMILY: "Patient Monitoring",
     image: "https://services.gehealthcare.com/medias/2059005-001-001.jpg?context=bWFzdGVyfGltYWdlc3wxODY3MDl8aW1hZ2UvanBlZ3xpbWFnZXMvaGEzL2g3YS84ODU1ODI1MzUwNjg2LmpwZ3w5MmM1MDkyMzc1NmFjNzEwY2FhNjE1Y2M3NTcxMGViYjIyYjg5ZjMxOWMxMWYyZTc1MDlhYzRhOWRkMzkxMjIy", 

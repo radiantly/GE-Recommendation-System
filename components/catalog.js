@@ -4,11 +4,11 @@ import { products } from "./utils/popularProductsData";
 
 const Catalog = () => {
   // accept product name as parameter in handleAddtoCart function
-  const handleAddToCart = (e) => {
+  const handleAddToCart = (productID) => e => {
     e.preventDefault();
-    e.stopPropagation();
-    toast.success("ADDED_TO_CART: Interaction recorded", {
-      hideProgressBar: true,
+   // e.stopPropagation();
+    toast.success("Item ID : "+productID+"\nADDED_TO_CART: Interaction recorded", {
+      hideProgressBar: false,
       autoClose: 5000,
     });
   };
@@ -25,7 +25,7 @@ const Catalog = () => {
               <div className={styles.card_row}>
                 <div className={styles.card_title}>{product.item_name}</div>
                 
-                <div className={styles.add_to_cart} onClick={handleAddToCart}>
+                <div className={styles.add_to_cart} onClick={handleAddToCart(product.item_id)}>
                   Add to cart
                 </div>
               </div>
