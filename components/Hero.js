@@ -10,7 +10,7 @@ const Hero = () => {
             Improving lives in the moments that matter
           </div>
           <div className={styles.para}>
-            We enable faster, more informed decisions through intelligent
+            We enable faster, more personalised decisions through intelligent
             devices, data, analytics, applications and services.
           </div>
           <a href="#catalog">

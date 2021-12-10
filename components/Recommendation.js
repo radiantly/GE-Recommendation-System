@@ -1,11 +1,18 @@
 import styles from "../styles/Recomendation.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 
 import * as items from "../Misc/items.json";
 import * as cached_recommendations from "../Misc/cached_rec.json";
 
 export default function Recommendation({ people }) {
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
   const [currentUser, setCurrentUser] = useState(0);
 
   const [recommendations, setRecommendations] = useState([]);
@@ -59,18 +66,19 @@ export default function Recommendation({ people }) {
           <a className={styles.showhistory}>Show customer history</a>
         </Link>
       </div>
-      <div className={styles.recommendation__container}>
+      <div className={styles.recommendation__container} data-aos="fade-up">
         {recommendations.map((item) => (
           <a
             href={items[item.itemId]["ITEM_PRODUCT_LINK"]}
             className={styles.recommendation__square}
-            target="_blank"
+            target="_blank" 
           >
             <img
               src={items[item.itemId]["ITEM_IMAGE_LINK"]}
               key={items[item.itemId]["ITEM_IMAGE_LINK"]}
+              data-aos="fade-up"
             />
-            <div className={styles.text}>
+            <div className={styles.text} data-aos="fade-up">
               <div className={styles.textbox}>
                 <div className={styles.itemTitle}>
                   {items[item.itemId]["ITEM_NAME"]}

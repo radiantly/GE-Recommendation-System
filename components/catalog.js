@@ -1,8 +1,15 @@
 import styles from "../styles/Catalog.module.css";
 import { toast } from "react-toastify";
 import { products } from "./utils/popularProductsData";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 
 const Catalog = () => {
+  useEffect(() => {
+    Aos.init({ duration: 600 });
+  }, []);
   // accept product name as parameter in handleAddtoCart function
   const handleAddToCart = (productID) => e => {
     e.preventDefault();
@@ -17,10 +24,10 @@ const Catalog = () => {
       <a id="catalog">
         <h1>Product Catalog</h1>
       </a>
-      <div className={styles.grid}>
+      <div className={styles.grid}  >
         {products.map((product) => (
           <a href={product.item_link} target="_blank" key={product.item_name}>
-            <div className={styles.card}>
+            <div className={styles.card} data-aos="fade-up">
               <img src={product.image} />
               <div className={styles.card_row}>
                 <div className={styles.card_title}>{product.item_name}</div>

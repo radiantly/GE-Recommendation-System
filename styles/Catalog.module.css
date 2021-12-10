@@ -26,7 +26,7 @@
 
 .catalog_section .card:hover {
   background-color: #f7f7f7;
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 .catalog_section .card img {
