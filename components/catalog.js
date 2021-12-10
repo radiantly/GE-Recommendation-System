@@ -3,11 +3,13 @@ import { toast } from "react-toastify";
 import { products } from "./utils/popularProductsData";
 
 const Catalog = () => {
+  // accept product name as parameter in handleAddtoCart function
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    toast("ADDED_TO_CART: Interaction recorded", {
+    toast.success("ADDED_TO_CART: Interaction recorded", {
       hideProgressBar: true,
+      autoClose: 5000,
     });
   };
   return (
@@ -22,6 +24,7 @@ const Catalog = () => {
               <img src={product.image} />
               <div className={styles.card_row}>
                 <div className={styles.card_title}>{product.item_name}</div>
+                
                 <div className={styles.add_to_cart} onClick={handleAddToCart}>
                   Add to cart
                 </div>
