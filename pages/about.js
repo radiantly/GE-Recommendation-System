@@ -20,36 +20,50 @@ export default function About() {
           <iframe
             src="https://www.youtube-nocookie.com/embed/F2FVdTB1JAY"
             title="Project Demo on YouTube"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </p>
         <p>
           {" "}
           Built by{" "}
-          <a href="https://github.com/radiantly" target="_blank">
+          <a
+            href="https://github.com/radiantly"
+            target="_blank"
+            rel="noreferrer"
+          >
             Arun Joshua
           </a>
           ,{" "}
           <a
             href="https://www.linkedin.com/in/samyuktha-thiruvengadam-90495b179/"
             target="_blank"
+            rel="noreferrer"
           >
             Samyuktha
           </a>
           ,{" "}
-          <a href="https://github.com/san-coding" target="_blank">
+          <a
+            href="https://github.com/san-coding"
+            target="_blank"
+            rel="noreferrer"
+          >
             Sandeep Rajakrishnan
           </a>{" "}
           and{" "}
-          <a href="https://github.com/VighneshShankar23" target="_blank">
+          <a
+            href="https://github.com/VighneshShankar23"
+            target="_blank"
+            rel="noreferrer"
+          >
             Vighnesh Shankar
           </a>{" "}
           under the guidance of{" "}
           <a
             href="https://www.linkedin.com/in/prasanna-hebbar-3927a64/"
             target="_blank"
+            rel="noreferrer"
           >
             Prasanna Hebbar
           </a>

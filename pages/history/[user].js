@@ -41,11 +41,15 @@ const History = ({ currentUser }) => {
                   onMouseOut={(e) => setCurrentImg(null)}
                 >
                   <td>
-                    <img src={ITEM_IMAGE_LINK} />
+                    <img src={ITEM_IMAGE_LINK} alt={ITEM_NAME} />
                   </td>
                   <td>
                     {ITEM_NAME}{" "}
-                    <a href={ITEM_PRODUCT_LINK} target="_blank">
+                    <a
+                      href={ITEM_PRODUCT_LINK}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       ({id})
                     </a>
                   </td>
@@ -67,7 +71,7 @@ const History = ({ currentUser }) => {
           " "
         )}
       >
-        <img src={currentImg} />
+        <img src={currentImg} alt="" />
       </div>
     </>
   );

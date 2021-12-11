@@ -8,10 +8,10 @@ const Hero = () => {
     Aos.init({ duration: 5000 });
   }, []);
   return (
-    <section className={styles.hero_section} >
+    <section className={styles.hero_section}>
       <div className={styles.main}>
         <div className={styles.text} data-aos="fade-right">
-          <div className={styles.big} >GE Healthcare</div>
+          <div className={styles.big}>GE Healthcare</div>
           <div className={styles.tagline}>
             Improving lives in the moments that matter
           </div>
@@ -24,7 +24,7 @@ const Hero = () => {
           </a>
         </div>
         <div className={styles.pic} data-aos="fade-left">
-          <img src="ge-promo.webp" />
+          <img src="ge-promo.webp" alt="" />
         </div>
       </div>
       <div className={styles.godown_wrap}>
