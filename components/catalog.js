@@ -1,15 +1,11 @@
 import styles from "../styles/Catalog.module.css";
 import { toast } from "react-toastify";
 import { products } from "./utils/popularProductsData";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Image from "next/image";
 
 const Catalog = () => {
-  useEffect(() => {
-    Aos.init({ duration: 600 });
-  }, []);
+  
   // accept product name as parameter in handleAddtoCart function
   const handleAddToCart = (productID) => (e) => {
     e.preventDefault();
@@ -34,7 +30,7 @@ const Catalog = () => {
             key={product.item_name}
             rel="noreferrer"
           >
-            <div className={styles.card} data-aos="fade-up">
+            <div className={styles.card} >
               <Image
                 src={product.image}
                 alt={product.item_name}
