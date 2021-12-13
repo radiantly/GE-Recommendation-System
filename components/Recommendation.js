@@ -67,28 +67,24 @@ export default function Recommendation({ people }) {
       </div>
       <div className={styles.recommendation__container} data-aos="fade-up">
         {recommendations.map((item) => (
-          <a
-            href={items[item.itemId]["ITEM_PRODUCT_LINK"]}
-            className={styles.recommendation__square}
-            key={item.itemId}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src={items[item.itemId]["ITEM_IMAGE_LINK"]}
-              alt={items[item.itemId]["ITEM_NAME"]}
-              height="1000"
-              width="1000"
-            />
-            <div className={styles.text} data-aos="fade-up">
-              <div className={styles.textbox}>
-                <div className={styles.itemTitle}>
-                  {items[item.itemId]["ITEM_NAME"]}
+          <Link href={`/store/${item.itemId}`} key={item.itemId}>
+            <a className={styles.recommendation__square}>
+              <Image
+                src={items[item.itemId]["ITEM_IMAGE_LINK"]}
+                alt={items[item.itemId]["ITEM_NAME"]}
+                height="1000"
+                width="1000"
+              />
+              <div className={styles.text} data-aos="fade-up">
+                <div className={styles.textbox}>
+                  <div className={styles.itemTitle}>
+                    {items[item.itemId]["ITEM_NAME"]}
+                  </div>
+                  <div className={styles.itemId}>Product ID: {item.itemId}</div>
                 </div>
-                <div className={styles.itemId}>Product ID: {item.itemId}</div>
               </div>
-            </div>
-          </a>
+            </a>
+          </Link>
         ))}
       </div>
     </div>

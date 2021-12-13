@@ -1,11 +1,10 @@
 import styles from "../styles/Catalog.module.css";
 import { toast } from "react-toastify";
 import { products } from "./utils/popularProductsData";
-import { useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 const Catalog = () => {
-  
   // accept product name as parameter in handleAddtoCart function
   const handleAddToCart = (productID) => (e) => {
     e.preventDefault();
@@ -24,31 +23,28 @@ const Catalog = () => {
       </a>
       <div className={styles.grid}>
         {products.map((product) => (
-          <a
-            href={product.item_link}
-            target="_blank"
-            key={product.item_name}
-            rel="noreferrer"
-          >
-            <div className={styles.card} >
-              <Image
-                src={product.image}
-                alt={product.item_name}
-                width="1000"
-                height="1000"
-              />
-              <div className={styles.card_row}>
-                <div className={styles.card_title}>{product.item_name}</div>
+          <Link href={`/store/${product.item_id}`} key={product.item_name}>
+            <a>
+              <div className={styles.card}>
+                <Image
+                  src={product.image}
+                  alt={product.item_name}
+                  width="1000"
+                  height="1000"
+                />
+                <div className={styles.card_row}>
+                  <div className={styles.card_title}>{product.item_name}</div>
 
-                <div
-                  className={styles.add_to_cart}
-                  onClick={handleAddToCart(product.item_id)}
-                >
-                  Add to cart
+                  <div
+                    className={styles.add_to_cart}
+                    onClick={handleAddToCart(product.item_id)}
+                  >
+                    Add to cart
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </Link>
         ))}
       </div>
     </div>
