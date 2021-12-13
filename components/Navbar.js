@@ -46,7 +46,7 @@ const Navbar = () => {
     let matches= []
     if(text.length>0){
       matches=Object.values(items).filter(item=>{
-        const regex=new RegExp(`^${text}`,'gi');
+        const regex=new RegExp(`${text}`,'gi');
         return item.ITEM_NAME.match(regex)
       }
       )
