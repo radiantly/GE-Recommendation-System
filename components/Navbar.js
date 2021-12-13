@@ -4,13 +4,28 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { useEffect, useState, useRef } from "react";
+import * as allItems from "../Misc/items.json";
 
 const Navbar = () => {
   const router = useRouter();
   const [toolTipVisible, setToolTipVisible] = useState(false);
   const triggeredOnce = useRef(false);
+  const [items,setItems]=useState([])
+  const [text,setText]=useState('');
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
+
+    const fetchRecs = async () => {
+  
+      // Cached
+      setItems(allItems.default);
+      console.log(allItems.default);
+    };
+    fetchRecs();
+
+
+
     const checkAndShowTip = () => {
       console.log(document.readyState);
       if (router.pathname === "/") {
@@ -26,6 +41,20 @@ const Navbar = () => {
     document.addEventListener("readystatechange", checkAndShowTip);
     checkAndShowTip();
   }, [router.pathname]);
+
+  const onChangeHandler = (text) =>{
+    let matches= []
+    if(text.length>0){
+      matches=Object.values(items).filter(item=>{
+        const regex=new RegExp(`^${text}`,'gi');
+        return item.ITEM_NAME.match(regex)
+      }
+      )
+    }
+    console.log('matches',matches)
+    setSuggestions(matches)
+    setText(text)
+  }
 
   return (
     <nav className={styles.navbar}>
@@ -51,7 +80,7 @@ const Navbar = () => {
       </Link>
       <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
         <span className="material-icons-outlined">search</span>
-        <input placeholder="Search for products..." />
+        <input placeholder="Search for products..." onChange={e=>onChangeHandler(e.target.value)} value={text} />
       </label>
       <div className={styles.spacer}></div>
       <Link href="/recommend" passHref>
