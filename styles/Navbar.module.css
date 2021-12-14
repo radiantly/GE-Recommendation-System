@@ -45,6 +45,8 @@
 
 .navbar .searchbar {
   display: flex;
+  position: relative;
+  z-index: 1;
   align-items: center;
   width: 48px;
   border-radius: 50px;
@@ -61,7 +63,22 @@
 .navbar .searchbar span {
   color: #c5c5c5;
 }
+
+.suggestionsContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 221, 221);
+  position: absolute;
+  top: 50px;
+  border-radius: 20px;
+  left: 0px;
+  width: 100%;
+  z-index: 2;
+}
+
 .suggest {
+  padding: 20px 40px;
+  border-top: 1px white solid;
 }
 
 .navbar .searchbar input {

@@ -48,21 +48,20 @@ const Navbar = () => {
 
   const onChangeHandler = (text) =>{
     let matches= []
+    setSuggestions([])
     const fuse = new Fuse(items, {
       keys: ['ITEM_NAME'],
     })  
 
     if(text.length > 0){
-  
-      var results=fuse.search(text)
-      if(results.length>3){
+      const results=fuse.search(text)
+      if(results.length>5){
         console.log("Search results : ",results.length)
-      for(let i=0;i<3;i++){
+      for(let i=0;i<5;i++){
         matches.push(results[i].item)
       }
     }
 
-    console.log(matches)
     setSuggestions(matches)
   }
   else{
@@ -76,7 +75,7 @@ function resetText(){
 }
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} onClick={resetText}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -97,18 +96,17 @@ function resetText(){
           <a className={styles.text}>About</a>
         </div>
       </Link>
-      <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
-        <span className="material-icons-outlined">search</span>
-        <input placeholder="Search for products..." onChange={e=>onChangeHandler(e.target.value)} value={text} />
-        
-      </label>
-      {suggestions && suggestions.map((suggestion,i)=>
-
-          <div key={i} className={styles.suggest} onClick={resetText}>  
-          <Link href={`/store/${suggestion.ITEM_ID}`}>
-          {suggestion.ITEM_NAME}</Link>
-          </div> )}
-          
+        <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
+          <span className="material-icons-outlined">search</span>
+          <input placeholder="Search for products..." onChange={e=>onChangeHandler(e.target.value)} value={text} />
+          <div className={styles.suggestionsContainer}>
+              {suggestions && suggestions.map((suggestion,i)=>
+                <div key={i} className={styles.suggest} onClick={resetText}>  
+                <Link href={`/store/${suggestion.ITEM_ID}`}>
+                {suggestion.ITEM_NAME}</Link>
+                </div> )}
+          </div>
+        </label>
       <div className={styles.spacer}></div>
       <Link href="/recommend" passHref>
         <div className={styles.box}>
