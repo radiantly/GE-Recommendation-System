@@ -10,26 +10,19 @@ const Navbar = () => {
   const router = useRouter();
   const [toolTipVisible, setToolTipVisible] = useState(false);
   const triggeredOnce = useRef(false);
-  const [items,setItems]=useState([])
-  const [text,setText]=useState('');
+  const [text, setText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
-  
+  const items = Object.entries(allItems).map(([ITEM_ID, ITEM_PROPERTIES]) => ({
+    ITEM_ID,
+    ...ITEM_PROPERTIES,
+  }));
+
+  const fuse = new Fuse(items, {
+    keys: ["ITEM_NAME"],
+  });
+
   useEffect(() => {
-
-    const fetchRecs = async () => {
-      for (let key in allItems) {
-        if(key!='ITEM_ID') {
-        allItems[key].ITEM_ID = key; 
-        items.push(allItems[key]);
-      }}
-      setItems(items);
-
-    };
-    fetchRecs();
-
-
-
     const checkAndShowTip = () => {
       console.log(document.readyState);
       if (router.pathname === "/") {
@@ -46,33 +39,23 @@ const Navbar = () => {
     checkAndShowTip();
   }, [router.pathname]);
 
-  const onChangeHandler = (text) =>{
-    let matches= []
-    setSuggestions([])
-    const fuse = new Fuse(items, {
-      keys: ['ITEM_NAME'],
-    })  
+  const onChangeHandler = (e) => {
+    setSuggestions(
+      (text = e.target.value)
+        ? fuse
+            .search(text)
+            .slice(0, 5)
+            .map((result) => result.item)
+        : []
+    );
 
-    if(text.length > 0){
-      const results=fuse.search(text)
-      if(results.length>5){
-        console.log("Search results : ",results.length)
-      for(let i=0;i<5;i++){
-        matches.push(results[i].item)
-      }
-    }
+    setText(text);
+  };
 
-    setSuggestions(matches)
+  function resetText() {
+    setText("");
+    setSuggestions([]);
   }
-  else{
-    setSuggestions([])
-  }
-  setText(text)
-}
-function resetText(){
-  setText('')
-  setSuggestions([])
-}
 
   return (
     <nav className={styles.navbar} onClick={resetText}>
@@ -96,17 +79,24 @@ function resetText(){
           <a className={styles.text}>About</a>
         </div>
       </Link>
-        <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
-          <span className="material-icons-outlined">search</span>
-          <input placeholder="Search for products..." onChange={e=>onChangeHandler(e.target.value)} value={text} />
-          <div className={styles.suggestionsContainer}>
-              {suggestions && suggestions.map((suggestion,i)=>
-                <div key={i} className={styles.suggest} onClick={resetText}>  
+      <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
+        <span className="material-icons-outlined">search</span>
+        <input
+          placeholder="Search for products..."
+          onChange={onChangeHandler}
+          value={text}
+        />
+        <div className={styles.suggestionsContainer}>
+          {suggestions &&
+            suggestions.map((suggestion, i) => (
+              <div key={i} className={styles.suggest} onClick={resetText}>
                 <Link href={`/store/${suggestion.ITEM_ID}`}>
-                {suggestion.ITEM_NAME}</Link>
-                </div> )}
-          </div>
-        </label>
+                  {suggestion.ITEM_NAME}
+                </Link>
+              </div>
+            ))}
+        </div>
+      </label>
       <div className={styles.spacer}></div>
       <Link href="/recommend" passHref>
         <div className={styles.box}>
