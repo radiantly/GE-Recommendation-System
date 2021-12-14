@@ -37,6 +37,85 @@
   position: relative;
 }
 
+.simItemsWrap {
+  width: 800px;
+  position: fixed;
+  bottom: 3vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 69;
+  background: var(--blue);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px 30px 20px;
+  transition: all 0.4s ease;
+}
+
+.simItemsWrap.hidden {
+  transform: translate(-50%, calc(3vh + 100%));
+}
+
+.simItemsWrap .row {
+  display: flex;
+}
+
+.simItemsWrap h3 {
+  margin: 0;
+  color: white;
+  padding: 0 0 10px 5px;
+  font-size: 1.5rem;
+}
+
+.sim_square {
+  padding: 0 10px 10px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px #085fb7;
+}
+
+.sim_square .itemTitle {
+  font-family: Roboto;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  color: #394b5e;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  min-height: 3.6rem;
+}
+
+.simItemsWrap .arrow {
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  filter: drop-shadow(0 0 2px #085fb7);
+}
+
+.simItemsWrap .back {
+  left: -24px;
+}
+
+.simItemsWrap .forward {
+  right: -24px;
+}
+
+.simItemsWrap :global .slick-arrow::before {
+  color: var(--blue);
+}
+
+.simItemsWrap :global .slick-slide > div {
+  padding: 5px;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0);
