@@ -21,6 +21,24 @@ const Catalog = () => {
       <a id="catalog">
         <h1>Product Catalog</h1>
       </a>
+      <details className={styles.help}>
+        <summary>What is this?</summary>
+        <p>
+          This section shows the most popular items and is generated using the{" "}
+          <em>Popularity Count</em> Amazon Personalize recipe. It recommends
+          products to users that are not logged in, or new users that have not
+          yet interacted with any product.
+        </p>
+        <p>
+          When a guest user interacts with the products below, the various
+          interactions are stored. Once they create or log in to an account,
+          these interactions are associated with the account to provide{" "}
+          <Link href="/recommend">
+            <a>personalized user recommendations</a>
+          </Link>
+          .
+        </p>
+      </details>
       <div className={styles.grid}>
         {products.map((product) => (
           <Link href={`/store/${product.item_id}`} key={product.item_name}>

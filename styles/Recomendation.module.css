@@ -40,6 +40,21 @@
   font-weight: 300;
   cursor: pointer;
 }
+.help {
+  margin-top: 2vh;
+  font-family: Poppins;
+  max-width: 65ch;
+  color: #555;
+  font-size: 0.9rem;
+}
+.help summary {
+  color: #666;
+  cursor: pointer;
+  font-weight: 500;
+}
+.help summary:hover {
+  color: #888;
+}
 
 .recomendation__main .recommendation__link1 {
   color: var(--blue);
@@ -51,7 +66,6 @@
 }
 
 .recommendation__container {
-  margin-top: 30px;
   padding: 30px 0;
   display: grid;
   --square-width: 250px;

@@ -4,14 +4,41 @@
 
 .catalog_section h1 {
   color: #373737;
-  margin: 4vh 0;
+  margin: 4vh 0 2vh;
+}
+
+.catalog_section .help {
+  font-family: Poppins;
+  max-width: 65ch;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.catalog_section .help summary {
+  color: #666;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.catalog_section .help summary:hover {
+  color: #888;
+}
+
+.catalog_section .help a {
+  text-decoration: underline dotted;
+  transition: all 0.2s ease-in-out;
+}
+
+.catalog_section .help a:hover {
+  color: #777;
+  text-decoration: underline solid;
 }
 
 .catalog_section .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 25px;
-
+  margin: 4vh 0;
   isolation: isolate;
 }
 

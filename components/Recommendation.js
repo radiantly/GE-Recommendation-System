@@ -65,6 +65,19 @@ export default function Recommendation({ people }) {
           <a className={styles.showhistory}>Show customer history</a>
         </Link>
       </div>
+      <details className={styles.help}>
+        <summary>What is this?</summary>
+        <p>
+          Once a user has signed in, personalized recommendations are offered to
+          the user based on their browsing history. To demonstrate this, we have
+          generated a number of users with a certain history of interactions
+          (Click <em>Show Customer History</em> to see them).
+        </p>
+        <p>
+          Based on these interactions, unique recommendations for each user are
+          generated using the User Personalization Amazon Personalize Recipe.
+        </p>
+      </details>
       <div className={styles.recommendation__container} data-aos="fade-up">
         {recommendations.map((item) => (
           <Link href={`/store/${item.itemId}`} key={item.itemId}>
