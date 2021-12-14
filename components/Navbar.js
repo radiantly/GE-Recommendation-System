@@ -2,7 +2,7 @@ import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-
+import Fuse from "fuse.js";
 import { useEffect, useState, useRef } from "react";
 import * as allItems from "../Misc/items.json";
 
@@ -14,13 +14,17 @@ const Navbar = () => {
   const [text,setText]=useState('');
   const [suggestions, setSuggestions] = useState([]);
 
+  
   useEffect(() => {
 
     const fetchRecs = async () => {
-  
-      // Cached
-      setItems(allItems.default);
-      console.log(allItems.default);
+      for (let key in allItems) {
+        if(key!='ITEM_ID') {
+        allItems[key].ITEM_ID = key; 
+        items.push(allItems[key]);
+      }}
+      setItems(items);
+
     };
     fetchRecs();
 
@@ -44,17 +48,32 @@ const Navbar = () => {
 
   const onChangeHandler = (text) =>{
     let matches= []
-    if(text.length>0){
-      matches=Object.values(items).filter(item=>{
-        const regex=new RegExp(`${text}`,'gi');
-        return item.ITEM_NAME.match(regex)
+    const fuse = new Fuse(items, {
+      keys: ['ITEM_NAME'],
+    })  
+
+    if(text.length > 0){
+  
+      var results=fuse.search(text)
+      if(results.length>3){
+        console.log("Search results : ",results.length)
+      for(let i=0;i<3;i++){
+        matches.push(results[i].item)
       }
-      )
     }
-    console.log('matches',matches)
+
+    console.log(matches)
     setSuggestions(matches)
-    setText(text)
   }
+  else{
+    setSuggestions([])
+  }
+  setText(text)
+}
+function resetText(){
+  setText('')
+  setSuggestions([])
+}
 
   return (
     <nav className={styles.navbar}>
@@ -81,7 +100,15 @@ const Navbar = () => {
       <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
         <span className="material-icons-outlined">search</span>
         <input placeholder="Search for products..." onChange={e=>onChangeHandler(e.target.value)} value={text} />
+        
       </label>
+      {suggestions && suggestions.map((suggestion,i)=>
+
+          <div key={i} className={styles.suggest} onClick={resetText}>  
+          <Link href={`/store/${suggestion.ITEM_ID}`}>
+          {suggestion.ITEM_NAME}</Link>
+          </div> )}
+          
       <div className={styles.spacer}></div>
       <Link href="/recommend" passHref>
         <div className={styles.box}>
