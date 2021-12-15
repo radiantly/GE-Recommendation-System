@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Fuse from "fuse.js";
 import { useEffect, useState, useRef } from "react";
 import * as allItems from "../Misc/items.json";
+import Image from "next/image";
 
 const Navbar = () => {
   const router = useRouter();
@@ -12,6 +13,8 @@ const Navbar = () => {
   const triggeredOnce = useRef(false);
   const [text, setText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [inputFocused, setInputFocused] = useState(false);
+  const [suggestionsClicked, setSuggestionsClicked] = useState(false);
 
   const items = Object.entries(allItems).map(([ITEM_ID, ITEM_PROPERTIES]) => ({
     ITEM_ID,
@@ -52,13 +55,8 @@ const Navbar = () => {
     setText(text);
   };
 
-  function resetText() {
-    setText("");
-    setSuggestions([]);
-  }
-
   return (
-    <nav className={styles.navbar} onClick={resetText}>
+    <nav className={styles.navbar}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -79,24 +77,49 @@ const Navbar = () => {
           <a className={styles.text}>About</a>
         </div>
       </Link>
-      <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
-        <span className="material-icons-outlined">search</span>
-        <input
-          placeholder="Search for products..."
-          onChange={onChangeHandler}
-          value={text}
-        />
-        <div className={styles.suggestionsContainer}>
+      <div className={styles.searchWrap}>
+        <label className={[styles.searchbar, styles.desktoponly].join(" ")}>
+          <span className="material-icons-outlined">search</span>
+          <input
+            placeholder="Search for products..."
+            onChange={onChangeHandler}
+            value={text}
+            onFocus={() => setInputFocused(true)}
+            onBlur={() => setInputFocused(false)}
+          />
+        </label>
+
+        <div
+          className={[
+            styles.suggestionsWrap,
+            suggestionsClicked || (text && inputFocused) ? "" : styles.hidden,
+          ].join(" ")}
+          onMouseDown={() => setSuggestionsClicked(true)}
+          onMouseUp={() => setSuggestionsClicked(false)}
+        >
           {suggestions &&
             suggestions.map((suggestion, i) => (
-              <div key={i} className={styles.suggest} onClick={resetText}>
-                <Link href={`/store/${suggestion.ITEM_ID}`}>
-                  {suggestion.ITEM_NAME}
-                </Link>
-              </div>
+              <Link
+                href={`/store/${suggestion.ITEM_ID}`}
+                key={`${i} ${suggestion.ITEM_NAME}`}
+              >
+                <a className={styles.suggestRow}>
+                  <div className={styles.thumb}>
+                    <Image
+                      src={suggestion.ITEM_IMAGE_LINK}
+                      alt=""
+                      width="30"
+                      height="30"
+                    />
+                  </div>
+                  <div className={styles.suggestText}>
+                    {suggestion.ITEM_NAME}
+                  </div>
+                </a>
+              </Link>
             ))}
         </div>
-      </label>
+      </div>
       <div className={styles.spacer}></div>
       <Link href="/recommend" passHref>
         <div className={styles.box}>
