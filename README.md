@@ -1,6 +1,6 @@
 # GE
 
-> Our team project for the GE Hack-E-LTH '21 Hackathon
+Showcases a recommendation system using Amazon Personalize to generate real-time recommendations based on interactions by customers.
 
 ## Getting started
 
@@ -150,3 +150,7 @@
    # The development server should be available on http://localhost:3000
    npm run dev
    ```
+
+### About
+
+We submitted this project for GE Healthcare's GE Hack-E-LTH '21 hackathon and won 1st prize. Our team comprised of [Joshua T](https://github.com/radiantly), [Samyuktha T H](https://github.com/samkeating), [Sandeep Rajakrishnan](https://github.com/san-coding), and [Vighnesh Shankar](https://github.com/VighneshShankar23).

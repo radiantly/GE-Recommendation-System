@@ -67,6 +67,14 @@ export default function About() {
           >
             Prasanna Hebbar
           </a>
+          . Find the source code{" "}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/radiantly/GE"
+          >
+            on GitHub
+          </a>
           .
         </p>
       </div>
